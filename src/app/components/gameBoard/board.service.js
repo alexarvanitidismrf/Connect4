@@ -7,21 +7,21 @@
 
   /** @ngInject */
   function Board() {
-    console.log('sad');
-    var rowNum = 7;
-    var colNum = 6;
+    var rowNum = 6;
+    var colNum = 7;
     var board;
-    var playerTurn;
     var versusMachine = true;
     var difficultyLevel = 0;
+    var currentPlayer;
+    var status; //play, win, exit
 
-    this.setup = function(){
-      this.initBoard();
-      playerTurn = 0; //TODO: Coin toss
-      //status = "player";
+    function setup(){
+      initBoard();
+      playerTurn = Math.floor((Math.random()) + 2);
+      status = "play";
     }
 
-    this.initBoard = function (){
+    function initBoard (){
       board = [];
       for(var i = 0; i < colNum; i++){
         board[i]=[]
@@ -36,16 +36,57 @@
         return false;
       }
 
+      var nextPos = nextRowAvailable(column);
+      if (nextPos == -1){
+        return false;
+      }
+      board[column][nextPos] = player;
+
+      endTurn();
+      return true;
     }
+
+
 
     this.getBoard = function (){
       return board;
     }
 
     this.getStatus = function (){
-      return
+      return status + '_' + currentPlayer;
     }
 
-    this.setup();
+    function nextRowAvailable(column){
+      for(int i = 0; i < rowNum; i++)
+      {
+        if (board[column][i] != 0)
+        {
+          return i-1;
+        }
+      }
+      return -1;
+    }
+
+    function endTurn(){
+      if (currentPlayer == 1){
+        currentPlayer = 2;
+      }else {
+        currentPlayer = 1;
+      }
+
+      if (versusMachine && currentPlayer == 2)
+      {
+        var choice = machinePlayColumn();
+        this.play();
+      }
+    }
+
+    function machinePlayColumn(){
+      if (difficultyLevel == 0){
+        return Math.floor((Math.random()* colNum-1));
+      }
+    }
+
+    setup();
   }
 })();
