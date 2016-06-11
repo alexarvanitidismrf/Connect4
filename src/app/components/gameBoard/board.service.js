@@ -8,8 +8,8 @@
   /** @ngInject */
   function Board() {
     console.log('sad');
-    var rowNum = 6;
-    var colNum = 7;
+    var rowNum = 7;
+    var colNum = 6;
     var board;
     var playerTurn;
     var versusMachine = true;

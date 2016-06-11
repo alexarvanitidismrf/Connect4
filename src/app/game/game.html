@@ -3,11 +3,12 @@
   <h1>Hey we're in game {{game.test}} now</h1>
 
   <div id="board" class="board-game">
-    <div class="token">
+      <div class="board-rows" ng-repeat="column in game.board">
+        <div class="cell" ng-class="{human: cell == '1', machine: cell == '2'}" ng-repeat="cell in column track by $index">{{cell}}</div>
+      </div>
     </div>
+
   </div>
-
-
 
 
 </div>
