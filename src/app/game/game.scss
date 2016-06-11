@@ -7,6 +7,7 @@
     top: 0;
     left: 0;
     background: url(../assets/board.png);
+    pointer-events: none;
   }
 }
 
@@ -18,6 +19,14 @@
 .cell {
   width: 100px;
   height: 100px;
-  background: red;
+  border-radius:50px;
   display: inline-block;
+
+  &.human {
+    background: red;
+  }
+
+  &.machine {
+    background: yellow;
+  }
 }
