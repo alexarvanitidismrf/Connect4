@@ -3,7 +3,7 @@
 
   angular
     .module('connect4')
-    .directive('acmeNavbar', acmeNavbar);
+    .directive('c4Navbar', acmeNavbar);
 
   /** @ngInject */
   function acmeNavbar() {
@@ -23,6 +23,7 @@
     /** @ngInject */
     function NavbarController(moment) {
       var vm = this;
+      console.log(vm.creationDate);
 
       // "vm.creationDate" is available by directive option "bindToController: true"
       vm.relativeDate = moment(vm.creationDate).fromNow();
