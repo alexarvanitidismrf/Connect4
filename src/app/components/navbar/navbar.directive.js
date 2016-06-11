@@ -23,7 +23,6 @@
     /** @ngInject */
     function NavbarController(moment) {
       var vm = this;
-      console.log(vm.creationDate);
 
       // "vm.creationDate" is available by directive option "bindToController: true"
       vm.relativeDate = moment(vm.creationDate).fromNow();

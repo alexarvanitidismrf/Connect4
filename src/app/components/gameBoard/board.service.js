@@ -7,8 +7,8 @@
 
   /** @ngInject */
   function Board() {
-    var rowNum = 6;
-    var colNum = 7;
+    var rowNum = 7;
+    var colNum = 6;
     var board;
     var versusMachine = true;
     var difficultyLevel = 0;
@@ -17,7 +17,7 @@
 
     function setup(){
       initBoard();
-      currentPlayer = Math.floor((Math.random()) + 2);
+      currentPlayer = 1; // Math.floor((Math.random()) + 2);
       status = "play";
     }
 
@@ -57,7 +57,7 @@
     }
 
     function nextRowAvailable(column){
-      for(int i = 0; i < rowNum; i++)
+      for(var i = 0; i < rowNum; i++)
       {
         if (board[column][i] != 0)
         {

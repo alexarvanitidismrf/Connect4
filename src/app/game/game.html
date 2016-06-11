@@ -3,8 +3,12 @@
   <h1>Hey we're in game {{game.test}} now</h1>
 
   <div id="board" class="board-game">
-      <div class="board-rows" ng-repeat="column in game.board">
-        <div class="cell" ng-class="{human: cell == '1', machine: cell == '2'}" ng-repeat="cell in column track by $index">{{cell}}</div>
+      <div class="board-rows {{$index}}" ng-repeat="column in game.board" ng-init='rowNum = $index'>
+        <div class="cell {{$index}} " ng-class="{human: cell == '1', machine: cell == '2'} "
+             ng-init='columnNum = $index'
+             ng-repeat="cell in column track by $index"
+             ng-click="game.clickedCell($event, rowNum, columnNum)"
+        >{{cell}}</div>
       </div>
     </div>
 
