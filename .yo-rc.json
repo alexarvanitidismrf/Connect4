@@ -41,8 +41,12 @@
         "module": "ui.router"
       },
       "ui": {
-        "key": "noUI",
+        "key": "bootstrap",
         "module": null
+      },
+      "bootstrapComponents": {
+        "key": "ui-bootstrap",
+        "module": "ui.bootstrap"
       },
       "cssPreprocessor": {
         "key": "node-sass",
@@ -56,12 +60,6 @@
       "htmlPreprocessor": {
         "key": "noHtmlPrepro",
         "extension": "html"
-      },
-      "bootstrapComponents": {
-        "name": null,
-        "version": null,
-        "key": null,
-        "module": null
       },
       "foundationComponents": {
         "name": null,
