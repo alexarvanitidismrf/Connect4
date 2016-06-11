@@ -3,10 +3,11 @@
 
   angular
       .module('connect4')
-      .service('board', board);
+      .service('Board', Board);
 
   /** @ngInject */
-  function board() {
+  function Board() {
+    console.log('sad');
     var rowNum = 6;
     var colNum = 7;
     var board;
@@ -15,12 +16,10 @@
     var difficultyLevel = 0;
 
     this.setup = function(){
-      setupBoard();
+      this.initBoard();
       playerTurn = 0; //TODO: Coin toss
-      status = "player";
+      //status = "player";
     }
-
-    this.getTec = getTec;
 
     this.initBoard = function (){
       board = [];
@@ -49,30 +48,4 @@
 
     this.setup();
   }
-
-
-
-
 })();
-
-
-
-
-
-
-
-
-class Game{
-  var rowNum = 6;
-  var colNum = 7;
-  var board;
-  var playerTurn;
-  var versusMachine = true;
-  var difficultyLevel = 0;
-
-
-
-}
-
-
-module.export = new Game();
