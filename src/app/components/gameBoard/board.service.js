@@ -21,7 +21,7 @@
       status = "play";
     }
 
-    function initBoard (){
+    function initBoard(){
       board = [];
       for(var i = 0; i < colNum; i++){
         board[i]=[]
@@ -74,11 +74,16 @@
         currentPlayer = 1;
       }
 
-      if (versusMachine && currentPlayer == 2)
-      {
+
+    }
+
+    function waitForMove(callback){
+      setTimeout(function(){
         var choice = machinePlayColumn();
         this.play();
-      }
+
+        callback();
+      },2000);
     }
 
     function machinePlayColumn(){
