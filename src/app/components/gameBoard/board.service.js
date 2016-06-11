@@ -17,7 +17,7 @@
 
     function setup(){
       initBoard();
-      playerTurn = Math.floor((Math.random()) + 2);
+      currentPlayer = Math.floor((Math.random()) + 2);
       status = "play";
     }
 
@@ -32,7 +32,7 @@
     }
 
     this.play = function(player,column){
-      if (player != playerTurn){
+      if (player != currentPlayer){
         return false;
       }
 
@@ -78,12 +78,14 @@
     }
 
     function waitForMove(callback){
+      var waitFor = Math.floor((Math.random())*3000);
+
       setTimeout(function(){
         var choice = machinePlayColumn();
         this.play();
 
         callback();
-      },2000);
+      },waitFor);
     }
 
     function machinePlayColumn(){
