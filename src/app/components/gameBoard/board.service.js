@@ -82,7 +82,7 @@
 
       setTimeout(function(){
         var choice = machinePlayColumn();
-        this.play();
+        this.play(2, choice);
 
         callback();
       },waitFor);
