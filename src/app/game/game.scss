@@ -9,3 +9,15 @@
     background: url(../assets/board.png);
   }
 }
+
+.board-rows {
+  display: block;
+
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background: red;
+  display: inline-block;
+}
